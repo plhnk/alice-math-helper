@@ -230,15 +230,7 @@ function App() {
       {countdown > 0 && <div className="countdown">{countdown}</div>}
       {countdown <= 0 && timeRemaining > 0 && (
         <div className={`App${countdown > 0 ? " app-opaque" : ""}`}>
-          <div
-            style={{
-              flex: "1",
-              display: "flex",
-              justifyContent: "center",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
+          <div className="flex flex-col items-center justify-center">
             <div>
               <div>Time left: {timeRemaining}s</div>
             </div>
