@@ -219,12 +219,14 @@ function App() {
               {hasRan && !timeRemaining ? `You got ${numWrong} wrong.` : ""}
             </div>
           </div>
-          <button style={{ fontSize: 20 }} onClick={onSelectAddition}>
-            Addition test
-          </button>
-          <button style={{ fontSize: 20 }} onClick={onSelectMultiplication}>
-            Multiplication test
-          </button>
+          <div className="flex gap-2">
+            <button className='bg-slate-500 rounded-sm m-4 w-full' onClick={onSelectAddition}>
+              Addition test
+            </button>
+            <button className='bg-slate-500 rounded-sm m-4 w-full' onClick={onSelectMultiplication}>
+              Multiplication test
+            </button>
+          </div>
         </div>
       )}
       {countdown > 0 && <div className="countdown">{countdown}</div>}
@@ -234,16 +236,7 @@ function App() {
             <div>
               <div>Time left: {timeRemaining}s</div>
             </div>
-            <div
-              style={{
-                fontWeight: "bold",
-                fontSize: "60px",
-                flex: 1,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
+            <div className="flex flex-col items-center justify-center text-6xl font-bold">
               {!useAddition && (
                 <span>
                   {number1} X {number2}
@@ -256,7 +249,7 @@ function App() {
               )}
             </div>
           </div>
-          <div className="Answer">
+          <div className="grid grid-rows-2 grid-cols-2 row-start-2 row-end-2">
             {answers.map((answer, index) => {
               const makeGreen =
                 wrongAnswer !== null &&
@@ -266,13 +259,14 @@ function App() {
               const makeRed = wrongAnswer === answer;
               return (
                 <div
-                  className="AnswerDiv"
+                  className="h-full w-full m-1"
                   style={{
                     gridColumnStart: index % 2 ? 2 : 1,
                     gridRowStart: index >= 2 ? 2 : 1,
                   }}
                 >
                   <button
+                    className="h-full w-full text-3xl font-bold transition-background duration-500 ease-in-out"
                     style={{
                       background: makeGreen
                         ? "lightgreen"
