@@ -66,19 +66,6 @@
   font-size: 24px;
 }
 
-.countdown {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 4;
-  font-size: 96px;
-}
-
 meter::-webkit-meter-bar {
   background: none; /* Required to get rid of the default background property */
   background-color: whiteSmoke;

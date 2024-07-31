@@ -1,4 +1,4 @@
-import "./App.css";
+import "./global.css";
 import { useEffect, useState, useRef } from "react";
 import Levels from "./components/levels";
 
@@ -190,9 +190,9 @@ function App() {
   return (
     <div>
       {!timeRemaining && (
-        <div className="intro">
-          <div className="levels">
-            <div className="levelsdesc">Select difficulty</div>
+        <div id="home" className="">
+          <div className="">
+            <div className="">Select difficulty</div>
             <Levels setMaxNumber={setMaxNumber} />
             <div>
               <label>Goal: </label>
@@ -210,7 +210,7 @@ function App() {
             </div>
           </div>
 
-          <div>
+          <div id="results">
             <div>
               {hasRan && !timeRemaining ? `You got ${numCorrect} right!` : ""}
             </div>
@@ -220,16 +220,26 @@ function App() {
             </div>
           </div>
           <div className="flex gap-2">
-            <button className='bg-slate-500 rounded-sm m-4 w-full' onClick={onSelectAddition}>
+            <button
+              className="bg-slate-500 rounded-sm m-4 w-full"
+              onClick={onSelectAddition}
+            >
               Addition test
             </button>
-            <button className='bg-slate-500 rounded-sm m-4 w-full' onClick={onSelectMultiplication}>
+            <button
+              className="bg-slate-500 rounded-sm m-4 w-full"
+              onClick={onSelectMultiplication}
+            >
               Multiplication test
             </button>
           </div>
         </div>
       )}
-      {countdown > 0 && <div className="countdown">{countdown}</div>}
+      {countdown > 0 && (
+        <div className="absolute top-0 left-0 right-0 bottom-0 flex justify-center align-center z-10 text-7xl">
+          {countdown}
+        </div>
+      )}
       {countdown <= 0 && timeRemaining > 0 && (
         <div className={`App${countdown > 0 ? " app-opaque" : ""}`}>
           <div className="flex flex-col items-center justify-center">
